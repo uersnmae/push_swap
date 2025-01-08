@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:04:51 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/08 12:40:08 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:51:22 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,40 @@ void	init_stack(t_ps *data, t_stack *stk, int size)
 	ft_memset(stk->stack, 0, (sizeof(int) * stk->size));
 }
 
-void	fill_stack(t_ps *data, t_stack *stk, char *number_str[])
+void	fill_stack(t_ps *data, t_stack *stk, int size, char *argv[])
 {
-	
+	int	*numbers;
+	int	i;
+
+	numbers = (int *)malloc(sizeof(int) * size);
+	if (!numbers)
+		error(data);
+	i = 0;
+	while (arr[i])
+	{
+		if (!valid_arg(argv))
+			error(data);
+		numbers[i] = ft_atoi[i];
+		i++;
+	}
+	ranking(numbers, stk->stack, size);
+	free(numbers);
+}
+
+void	ranking(int *numbers, int *stack, int size)
+{
+	int	i;
+	int	j;
+	int	min_counter;
+
+	i = 0;
+	while (i < size)
+	{
+		j = 0;
+		min_counter = 0;
+		while (j < size)
+			if (numbers[j++] <= numbers[i])
+				min_counter++;
+		stack[i++] = min_counter;
+	}
 }

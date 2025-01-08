@@ -1,14 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_management.c                                  :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/06 11:05:19 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/08 16:38:29 by dong-hki         ###   ########.fr       */
+/*   Created: 2025/01/08 16:26:53 by dong-hki          #+#    #+#             */
+/*   Updated: 2025/01/08 16:28:30 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
+enum	e_pos = {
+	TOP_A;
+	BOTTOM_A;
+	TOP_B;
+	BOTTOM_B;
+}
+
+#endif
