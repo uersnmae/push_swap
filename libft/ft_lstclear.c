@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:26:17 by dong-hki          #+#    #+#             */
-/*   Updated: 2024/10/04 13:17:53 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:09:36 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*current;
 	t_list	*next;
 
-	if (lst == NULL || (*lst) == NULL || del == NULL)
+	if (lst == NULL || (*lst) == NULL)
 		return ;
 	else
 	{

@@ -1,21 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 10:53:50 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 14:32:21 by dong-hki         ###   ########.fr       */
+/*   Created: 2025/01/09 12:05:07 by dong-hki          #+#    #+#             */
+/*   Updated: 2025/01/09 13:23:29 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "mystack.h"
 
-int	main(int argc, char *argv[])
+void	push(t_stack *dest, t_stack *src)
 {
-	t_ps	data;
+	int	dest_i;
 
-	init_data(&data, argc, argv);
-	sort(&data);
+	if (is_full(dest))
+		return ;
+	dest_i = next_up(dest, dest->top);
+	dest->stack[dest_i] = src->stack[src->top];
+	dest->top = dest_i;
+	src->stack[src->top] = 0;
+	src->top = next_down(src, src->top);
+}
+
+void	push_a(t_ps *data)
+{
+	push(&data->b, &data->a);
+}
+
+void	push_b(t_ps *data)
+{
+	push(&data->a, &data->b);
 }
