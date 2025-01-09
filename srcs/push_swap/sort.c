@@ -6,11 +6,12 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:32:30 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 14:58:32 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:15:38 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "stack.h"
 
 void	sort(t_ps *data)
 {

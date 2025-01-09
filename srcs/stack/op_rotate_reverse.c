@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:43:23 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 13:46:31 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:28:41 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	rotate_reverse_b(t_ps *data)
 	rotate_reverse(&data->b);
 }
 
-void rotate_reverse_all(t_ps *data)
+void	rotate_reverse_all(t_ps *data)
 {
 	rotate_reverse(&data->a);
 	rotate_reverse(&data->b);

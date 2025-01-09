@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 10:53:50 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 14:32:21 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:22:20 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,7 @@ int	main(int argc, char *argv[])
 
 	init_data(&data, argc, argv);
 	sort(&data);
+	print_ops(data.op_list);
+	free_data(&data);
+	return (0);
 }
