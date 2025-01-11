@@ -6,12 +6,11 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:04:27 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/06 11:18:30 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/11 18:44:54 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
-# define STACK_H
 
 # include <stdlib.h>
 # include <stdbool.h>
@@ -19,20 +18,21 @@
 # include "libft.h"
 # include "ft_printf.h"
 
-typedef	struct s_stack
+# define STACK_H
+
+typedef struct s_stack
 {
 	int	*stack;
 	int	size;
 	int	top;
 	int	bottom;
-}	t_stack
+}	t_stack;
 
-typedef	s_push_swap
+typedef struct s_push_swap
 {
 	t_stack	a;
 	t_stack	b;
 	t_list	*op_list;
-	//bool	writing_mode;
 }	t_ps;
 
 enum	e_op

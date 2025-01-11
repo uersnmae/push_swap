@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:32:30 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 16:15:38 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/11 18:38:21 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort(t_ps *data)
 	else if (data->a.size == 5)
 		sort_five_a(data);
 	else
-		chunk_split(data);
+		chunk_sort(data);
 }
 
 void	sort_three_a(t_ps *data)

@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   opti_to_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 16:26:53 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/11 18:45:05 by dong-hki         ###   ########.fr       */
+/*   Created: 2025/01/11 18:51:27 by dong-hki          #+#    #+#             */
+/*   Updated: 2025/01/11 19:00:56 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "stack.h"
-
-# define PUSH_SWAP_H
-
-enum	e_loc = {
-	TOP_A;
-	BOTTOM_A;
-	TOP_B;
-	BOTTOM_B;
-};
-
-typedef struct s_chunk
+void	chunk_to_top(t_ps *data, t_chunk *to_sort)
 {
-	enum e_loc	pos;
-	int			size;
-
-}	t_chunk;
-
-typedef struct s_split_dest
-{
-	t_chunk	min;
-	t_chunk	mid;
-	t_chunk	max;
-}	t_split_dest;
-
-#endif
+	if (to_sort->loc == BOTTOM_B && curr_size(&data->b) == to_sort->size)
+		to_sort->loc = TOP_B;
+	if (to_sort->loc == BOTTOM_A && curr_size(&data->a) == to_sort->size)
+		to_sort->loc = TOP_A;
+}
