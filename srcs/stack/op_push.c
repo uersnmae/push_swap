@@ -27,12 +27,12 @@ static void	push(t_stack *dest, t_stack *src)
 
 void	push_a(t_ps *data)
 {
-	push(&data->b, &data->a);
+	push(&data->a, &data->b);
 	save_op(data, pa);
 }
 
 void	push_b(t_ps *data)
 {
-	push(&data->a, &data->b);
+	push(&data->b, &data->a);
 	save_op(data, pb);
 }

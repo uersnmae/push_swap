@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 11:15:18 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 12:04:43 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/14 20:08:21 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	next_down(t_stack *stk, int index)
 	if (index == stk->size - 1)
 		return (0);
 	else
-		return (index - 1);
+		return (index + 1);
 }
 
 int	get_value(t_stack *stk, int index)

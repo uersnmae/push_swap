@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:26:53 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/14 15:21:36 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/14 20:23:40 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,8 @@ void	chunk_to_top(t_ps *data, t_chunk *to_sort);
 
 // sort.c
 void	sort(t_ps *data);
+
+// easy_sort.c
+void	easy_sort(t_ps *data, t_chunk *to_sort);
 
 #endif

@@ -26,6 +26,7 @@ void	rec_chunk_sort(t_ps *data, t_chunk *to_sort)
 	t_split_dest	dest;
 
 	chunk_to_top(data, to_sort);
+	easy_sort(data, to_sort);
 	if (to_sort->size <= 3)
 	{
 		if (to_sort->size == 3)

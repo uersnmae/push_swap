@@ -21,7 +21,8 @@ PUSH_SWAP_SRC = $(STACK_SRC) \
                 opti_sort_three.c \
                 opti_to_top.c \
                 sort.c \
-                push_swap.c
+                push_swap.c \
+				opti_easy_sort.c
 
 CHECKER_INC = $(STACK_INC) checker_bonus.h
 CHECKER_SRC = $(STACK_SRC)
