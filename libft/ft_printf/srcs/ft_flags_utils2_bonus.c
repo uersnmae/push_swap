@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf_bonus.h"
+#include "libft.h"
+#include "ft_printf_bonus.h"
 
 ssize_t	ft_get_param_width(t_flags *flag, va_list params)
 {

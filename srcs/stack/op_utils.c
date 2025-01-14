@@ -51,5 +51,10 @@ const char	*op_to_string(enum e_op op)
 		"ss"
 	};
 
-	return (string[op]);
+	return (op_string[op]);
+}
+
+enum e_op	op_from(t_list *node)
+{
+	return ((enum e_op)(uintptr_t)node->content);
 }

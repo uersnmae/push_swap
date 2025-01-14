@@ -6,26 +6,13 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 15:24:00 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/11 19:10:36 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/14 15:19:48 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	move_from_to(t_ps *data, enum e_loc from, enum e_loc to)
-{
-	if (from == TOP_A)
-		move_from_top_a(data, to);
-	else if (from == TOP_B)
-		move_from_top_b(data, to);
-	else if (from == BOTTOM_A)
-		move_from_bottom_a(data, to);
-	else if (from == BOTTOM_B)
-		move_from_bottom_b(data, to);
-	return (1);
-}
-
-void	move_from_top_a(t_ps *data, enum e_loc to)
+static void	move_from_top_a(t_ps *data, enum e_loc to)
 {
 	if (to == TOP_B)
 		push_b(data);
@@ -38,7 +25,7 @@ void	move_from_top_a(t_ps *data, enum e_loc to)
 		rotate_a(data);
 }
 
-void	move_from_top_b(t_ps *data, enum e_loc to)
+static void	move_from_top_b(t_ps *data, enum e_loc to)
 {
 	if (to == TOP_A)
 		push_a(data);
@@ -51,7 +38,7 @@ void	move_from_top_b(t_ps *data, enum e_loc to)
 		rotate_b(data);
 }
 
-void	move_from_bottom_a(t_ps *data, enum e_loc to)
+static void	move_from_bottom_a(t_ps *data, enum e_loc to)
 {
 	if (to == TOP_A)
 		rotate_reverse_a(data);
@@ -68,14 +55,14 @@ void	move_from_bottom_a(t_ps *data, enum e_loc to)
 	}
 }
 
-void	move_from_bottom_b(t_ps *data, enum e_loc to)
+static void	move_from_bottom_b(t_ps *data, enum e_loc to)
 {
 	if (to == TOP_A)
 	{
 		rotate_reverse_b(data);
 		push_a(data);
 	}
-	else if (to == TOB_B)
+	else if (to == TOP_B)
 		rotate_reverse_b(data);
 	else if (to == BOTTOM_A)
 	{
@@ -83,4 +70,17 @@ void	move_from_bottom_b(t_ps *data, enum e_loc to)
 		push_a(data);
 		rotate_a(data);
 	}
+}
+
+int	move_from_to(t_ps *data, enum e_loc from, enum e_loc to)
+{
+	if (from == TOP_A)
+		move_from_top_a(data, to);
+	else if (from == TOP_B)
+		move_from_top_b(data, to);
+	else if (from == BOTTOM_A)
+		move_from_bottom_a(data, to);
+	else if (from == BOTTOM_B)
+		move_from_bottom_b(data, to);
+	return (1);
 }

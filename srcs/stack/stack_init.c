@@ -12,27 +12,7 @@
 
 #include "stack.h"
 
-void	fill_stack(t_ps *data, t_stack *stk, int size, char *argv[])
-{
-	int	*numbers;
-	int	i;
-
-	numbers = (int *)malloc(sizeof(int) * size);
-	if (!numbers)
-		error(data);
-	i = 0;
-	while (arr[i])
-	{
-		if (!valid_arg(argv))
-			error(data);
-		numbers[i] = ft_atoi[i];
-		i++;
-	}
-	ranking(numbers, stk->stack, size);
-	free(numbers);
-}
-
-void	ranking(int *numbers, int *stack, int size)
+static void	ranking(int *numbers, int *stack, int size)
 {
 	int	i;
 	int	j;
@@ -48,4 +28,72 @@ void	ranking(int *numbers, int *stack, int size)
 				min_counter++;
 		stack[i++] = min_counter;
 	}
+}
+
+static bool	valid_arg(char *arg)
+{
+	long	num;
+	int			sign;
+
+	sign = 1;
+	num = 0;
+	if (*arg == '\0')
+		return (false);
+	if (*arg == '+' || *arg == '-')
+		if (*(arg++) == '-')
+			sign = -1;
+	while (*arg)
+	{
+		if (!ft_isdigit(*arg))
+			return (false);
+		num = num * 10 + (*arg - '0');;
+		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num < INT_MIN))
+			return (false);
+		arg++;
+	}
+	return (true);
+}
+
+static void	duplication_check(t_ps *data, int *numbers, int size)
+{
+	int	i;
+	int	j;
+	
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (numbers[i] == numbers[j])
+			{
+				free(numbers);
+				error(data);
+			}
+			++j;
+		}
+		++i;
+	}
+}
+
+void	fill_stack(t_ps *data, t_stack *stk, int size, char *argv[])
+{
+	int	*numbers;
+	int	i;
+
+	numbers = (int *)malloc(sizeof(int) * size);
+	if (!numbers)
+		error(data);
+	i = 0;
+	while (argv[i])
+	{
+		if (!valid_arg(argv[i]))
+			error(data);
+		numbers[i] = ft_atoi(argv[i]);
+		i++;
+	}
+	duplication_check(data, numbers, size);
+	ranking(numbers, stk->stack, size);
+	stk->bottom = size - 1;
+	free(numbers);
 }

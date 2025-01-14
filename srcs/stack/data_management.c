@@ -14,16 +14,16 @@
 
 void	init_data(t_ps *data, int argc, char *argv[])
 {
-	--size;
+	--argc;
 	init_stack(data, &data->a, argc);
 	init_stack(data, &data->b, argc);
-	fill_stack(data, &data->a, ++argv);
+	fill_stack(data, &data->a, argc, ++argv);
 	data->op_list = NULL;
 }
 
 void	init_stack(t_ps *data, t_stack *stk, int size)
 {
-	stk->stack = (t_stack)malloc(sizeof(t_stack));
+	stk->stack = malloc(sizeof(int) * size);
 	if (!stk->stack)
 		error(data);
 	stk->size = size;

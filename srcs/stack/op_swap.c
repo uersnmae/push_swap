@@ -6,13 +6,13 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:15:07 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 13:24:02 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:00:30 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mystack.h"
+#include "stack.h"
 
-void	swap(t_stack *stk)
+static void	swap(t_stack *stk)
 {
 	int	temp;
 
@@ -26,9 +26,11 @@ void	swap(t_stack *stk)
 void	swap_a(t_ps *data)
 {
 	swap(&data->a);
+	save_op(data, sa);
 }
 
 void	swap_b(t_ps *data)
 {
 	swap(&data->b);
+	save_op(data, sb);
 }

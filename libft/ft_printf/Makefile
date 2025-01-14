@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror -I includes
+CFLAGS = -g -Wall -Wextra -Werror -Iincludes -I..
 NAME = libftprintf.a
 
 SRCS = ft_parse.c ft_format.c ft_format_utils.c ft_printf.c
@@ -10,7 +10,7 @@ SRCS_NO_PRINTF = ft_parse.c ft_format.c ft_format_utils.c
 SRC_DIR = srcs
 OBJ_DIR = objs
 
-LIBFT_DIR = libft
+LIBFT_DIR = ..
 LIBFT = $(LIBFT_DIR)/libft.a
 TMP_DIR = tmp_libft_objs
 

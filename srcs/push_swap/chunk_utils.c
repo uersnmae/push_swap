@@ -20,7 +20,6 @@ int	chunk_value(t_ps *data, t_chunk *chunk, int n)
 
 	stk = loc_to_stack(data, chunk->loc);
 	size = chunk->size;
-	max = 0;
 	if (chunk->loc == TOP_A || chunk->loc == TOP_B)
 		i = stk->top;
 	else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)

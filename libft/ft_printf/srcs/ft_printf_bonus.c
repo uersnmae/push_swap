@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf_bonus.h"
+#include "libft.h"
+#include "ft_printf_bonus.h"
 
 static void	ft_flag_init(t_flags *flag)
 {

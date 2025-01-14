@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf_bonus.h"
+#include "libft.h"
+#include "ft_printf_bonus.h"
 
 static ssize_t	ft_precision_len(t_flags *flag, va_list params, \
 								ssize_t param_width)

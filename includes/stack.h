@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:04:27 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/11 18:44:54 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:02:48 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_push_swap
 	t_stack	a;
 	t_stack	b;
 	t_list	*op_list;
+	bool	writing_mode;
 }	t_ps;
 
 enum	e_op
@@ -51,4 +52,46 @@ enum	e_op
 	ss
 };
 
+// data management
+void	init_data(t_ps *data, int argc, char *argv[]);
+void	init_stack(t_ps *data, t_stack *stk, int size);
+bool	is_sorted(t_ps *data);
+void	error(t_ps *data);
+void	free_data(t_ps *data);
+
+// operations
+void	swap_a(t_ps *data);
+void	swap_b(t_ps *data);
+
+void	push_a(t_ps *data);
+void	push_b(t_ps *data);
+
+void	rotate_a(t_ps *data);
+void	rotate_b(t_ps *data);
+void	rotate_all(t_ps *data);
+
+void	rotate_reverse_a(t_ps *data);
+void	rotate_reverse_b(t_ps *data);
+void	rotate_reverse_all(t_ps *data);
+
+// operations utils
+void	save_op(t_ps *data, enum e_op op);
+void	print_ops(t_list *head);
+const char	*op_to_string(enum e_op op);
+
+// stack_utils.c
+int		next_up(t_stack *stk, int index);
+int		next_down(t_stack *stk, int index);
+int		get_value(t_stack *stk, int index);
+int		curr_size(t_stack *stk);
+int		is_full(t_stack *stk);
+
+// stack_init.c
+void	fill_stack(t_ps *data, t_stack *stk, int size, char *argv[]);
+
+// op_utils.c
+void	save_op(t_ps *data, enum e_op op);
+void	print_ops(t_list *head);
+const char	*op_to_string(enum e_op op);
+enum e_op	op_from(t_list *node);
 #endif

@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:46:50 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/13 13:23:29 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/14 11:16:02 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	set_split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid, t_chunk *max)
 	{
 		min->loc = BOTTOM_B;
 		mid->loc = TOP_B;
-		max->loc = BOTTON_A;
+		max->loc = BOTTOM_A;
 	}
 	else if (loc == TOP_B)
 	{
@@ -51,7 +51,7 @@ void	set_third_pivot(enum e_loc loc, int size, int *pivot_1, int *pivot_2)
 {
 	*pivot_2 = size / 3;
 	if (loc == TOP_A || loc == BOTTOM_A)
-		*pivot_1 = 2 * pivot_2;
+		*pivot_1 = 2 * (*pivot_2);
 	if (loc == TOP_B || loc == BOTTOM_B)
 		*pivot_1 = size / 2;
 	if ((loc == TOP_A || loc == BOTTOM_A) && size < 15)
@@ -60,4 +60,25 @@ void	set_third_pivot(enum e_loc loc, int size, int *pivot_1, int *pivot_2)
 		*pivot_1 = size / 2;
 }
 
-void	
+void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
+{
+	int	pivot_1;
+	int	pivot_2;
+	int	max;
+	int	next;
+
+	init_size(&dest->min, &dest->mid, &dest->max);
+	set_split_loc(to_split->loc, &dest->min, &dest->mid, &dest->max);
+	set_third_pivot(to_split->loc, to_split->size, &pivot_1, &pivot_2);
+	max = chunk_max_value(data, to_split);
+	while (to_split->size--)
+	{
+		next = chunk_value(data, to_split, 1);
+		if (next > max - pivot_2)
+			dest->max.size += move_from_to(data, to_split->loc, dest->max.loc);
+		else if (next > max - pivot_1)
+			dest->mid.size += move_from_to(data, to_split->loc, dest->mid.loc);
+		else
+			dest->min.size += move_from_to(data, to_split->loc, dest->min.loc);
+	}
+}

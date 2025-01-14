@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "libft.h"
+#include "ft_printf.h"
 
 size_t	ft_numlen(long nbr, int base, int sign, void *ptr)
 {

@@ -6,13 +6,13 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:05:07 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 13:23:29 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/14 14:00:06 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mystack.h"
+#include "stack.h"
 
-void	push(t_stack *dest, t_stack *src)
+static void	push(t_stack *dest, t_stack *src)
 {
 	int	dest_i;
 
@@ -28,9 +28,11 @@ void	push(t_stack *dest, t_stack *src)
 void	push_a(t_ps *data)
 {
 	push(&data->b, &data->a);
+	save_op(data, pa);
 }
 
 void	push_b(t_ps *data)
 {
 	push(&data->a, &data->b);
+	save_op(data, pb);
 }
