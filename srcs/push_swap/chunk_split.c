@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:46:50 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/14 11:16:02 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:42:06 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ void	set_split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid, t_chunk *max)
 		mid->loc = TOP_B;
 		max->loc = BOTTOM_A;
 	}
-	else if (loc == TOP_B)
-	{
-		min->loc = BOTTOM_B;
-		mid->loc = BOTTOM_A;
-		max->loc = TOP_A;
-	}
 	else if (loc == BOTTOM_A)
 	{
 		min->loc = BOTTOM_B;
 		mid->loc = TOP_B;
+		max->loc = TOP_A;
+	}
+	else if (loc == TOP_B)
+	{
+		min->loc = BOTTOM_B;
+		mid->loc = BOTTOM_A;
 		max->loc = TOP_A;
 	}
 	else if (loc == BOTTOM_B)

@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 20:12:14 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/14 20:23:14 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:40:07 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,18 @@ static void handle_bottom_b(t_ps *data, t_chunk *to_sort)
 		to_sort->size--;
 	}
 	else
-		rotate_reverse_b(data);
+		rotate_b(data);
 }
 
 static void	handle_bottom_a(t_ps *data, t_chunk *to_sort)
 {
 	rotate_reverse_a(data);
 	rotate_reverse_a(data);
-	if (get_value(&data->a, 1) == get_value(&data->a, 1) - 1)
+	swap_a(data);
+	if (get_value(&data->a, 1) == get_value(&data->a, 2) - 1)
 		to_sort->size--;
 	else
-		rotate_reverse_a(data);
+		rotate_a(data);
 }
 
 static void	handle_top_b(t_ps *data, t_chunk *to_sort)
@@ -42,7 +43,7 @@ static void	handle_top_b(t_ps *data, t_chunk *to_sort)
 	push_a(data);
 	if (get_value(&data->b, 1) == get_value(&data->a, 1) - 1)
 	{
-		push_b(data);
+		push_a(data);
 		to_sort->size--;
 	}
 }
@@ -64,7 +65,7 @@ void	easy_sort(t_ps *data, t_chunk *to_sort)
 	{
 		if (get_value(&data->a, 1) == chunk_value(data, to_sort, 1) + 1 && to_sort->size > 0)
 			sort_one(data, to_sort);
-		else if (get_value(&data->a, 1) == chunk_value(data, to_sort, 2) + 1 && to_sort->size > 0)
+		else if (get_value(&data->a, 1) == chunk_value(data, to_sort, 2) + 1 && to_sort->size > 1)
 			easy_sort_second(data, to_sort);
 		else
 			break ;

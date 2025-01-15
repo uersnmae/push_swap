@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:27:20 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/11 19:38:36 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/15 15:57:55 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 int	chunk_value(t_ps *data, t_chunk *chunk, int n)
 {
-	t_stack	*stk;
-	int		size;
-	int		i;
+	t_stack		*stk;
+	int			i;
 
 	stk = loc_to_stack(data, chunk->loc);
-	size = chunk->size;
 	if (chunk->loc == TOP_A || chunk->loc == TOP_B)
 		i = stk->top;
 	else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)
 		i = stk->bottom;
 	if (chunk->loc == TOP_A || chunk->loc == TOP_B)
-		while (--n)
+		while (--n > 0)
 			i = next_down(stk, i);
 	else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)
-		while (--n)
+		while (--n > 0)
 			i = next_up(stk, i);
 	return (stk->stack[i]);
 }
