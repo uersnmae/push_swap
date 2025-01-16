@@ -6,14 +6,14 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:29:46 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/14 15:19:07 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:43:01 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static void	sort_three_top_a(t_ps *data,
-							 t_chunk *to_sort, t_stack *stk, int max)
+							t_chunk *to_sort, t_stack *stk, int max)
 {
 	if (stk->stack[stk->top] == max)
 	{
@@ -34,7 +34,7 @@ static void	sort_three_top_a(t_ps *data,
 }
 
 static void	sort_three_top_b(t_ps *data,
-							 t_chunk *to_sort, t_stack *stk, int max)
+							t_chunk *to_sort, t_stack *stk, int max)
 {
 	push_a(data);
 	if (stk->stack[stk->top] == max)

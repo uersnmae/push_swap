@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:04:51 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 13:47:37 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:55:37 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ranking(int *numbers, int *stack, int size)
 
 static bool	valid_arg(char *arg)
 {
-	long	num;
+	long long	num;
 	int			sign;
 
 	sign = 1;
@@ -46,8 +46,8 @@ static bool	valid_arg(char *arg)
 	{
 		if (!ft_isdigit(*arg))
 			return (false);
-		num = num * 10 + (*arg - '0');;
-		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num < INT_MIN))
+		num = num * 10 + (*arg - '0');
+		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num * sign < INT_MIN))
 			return (false);
 		arg++;
 	}
@@ -58,7 +58,7 @@ static void	duplication_check(t_ps *data, int *numbers, int size)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < size)
 	{

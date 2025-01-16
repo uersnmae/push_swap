@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:05:19 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/09 14:09:14 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/16 12:00:43 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,30 @@
 
 void	init_data(t_ps *data, int argc, char *argv[])
 {
-	--argc;
-	init_stack(data, &data->a, argc);
-	init_stack(data, &data->b, argc);
-	fill_stack(data, &data->a, argc, ++argv);
+	char	**splited;
+	int		splited_size;
+
+	if (argc == 2)
+	{
+		splited_size = 0;
+		splited = ft_split(argv[1], ' ');
+		while (splited[splited_size])
+			splited_size++;
+		init_stack(data, &data->a, splited_size);
+		init_stack(data, &data->b, splited_size);
+		fill_stack(data, &data->a, splited_size, splited);
+		splited_size = 0;
+		while (splited[splited_size])
+			free(splited[splited_size++]);
+		free(splited);
+	}
+	else
+	{
+		--argc;
+		init_stack(data, &data->a, argc);
+		init_stack(data, &data->b, argc);
+		fill_stack(data, &data->a, argc, ++argv);
+	}
 	data->op_list = NULL;
 }
 

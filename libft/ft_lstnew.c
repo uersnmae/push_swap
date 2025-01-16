@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:54:37 by dong-hki          #+#    #+#             */
-/*   Updated: 2024/10/06 13:33:37 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/16 11:20:05 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_list	*ft_lstnew(void *content)
 	t_list	*node;
 
 	node = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (node == (void *)0)
-		return ((void *)0);
+	if (node == NULL)
+		return (NULL);
 	node->content = content;
-	node->next = (void *)0;
+	node->next = NULL;
 	return (node);
 }

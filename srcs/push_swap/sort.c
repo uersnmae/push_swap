@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:32:30 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/14 14:13:10 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/16 10:43:11 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static void	sort_three_a(t_ps *data)
 	tmp[0] = get_value(&data->a, 1);
 	tmp[1] = get_value(&data->a, 2);
 	tmp[2] = get_value(&data->a, 3);
-
 	if (tmp[0] < tmp[1] && tmp[1] > tmp[2] && tmp[0] < tmp[2])
 	{
 		rotate_reverse_a(data);
