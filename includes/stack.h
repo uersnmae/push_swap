@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:04:27 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/16 10:51:35 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/16 14:33:18 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,8 @@ void		save_op(t_ps *data, enum e_op op);
 void		print_ops(t_list *head);
 const char	*op_to_string(enum e_op op);
 enum e_op	op_from(t_list *node);
+
+// free_split.c
+void	free_split(char **splited);
 
 #endif

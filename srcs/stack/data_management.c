@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:05:19 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/16 12:00:43 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/16 16:00:00 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	init_data(t_ps *data, int argc, char *argv[])
 	char	**splited;
 	int		splited_size;
 
+	data->op_list = NULL;
 	if (argc == 2)
 	{
 		splited_size = 0;
@@ -26,10 +27,7 @@ void	init_data(t_ps *data, int argc, char *argv[])
 		init_stack(data, &data->a, splited_size);
 		init_stack(data, &data->b, splited_size);
 		fill_stack(data, &data->a, splited_size, splited);
-		splited_size = 0;
-		while (splited[splited_size])
-			free(splited[splited_size++]);
-		free(splited);
+		free_split(splited);
 	}
 	else
 	{
@@ -38,7 +36,6 @@ void	init_data(t_ps *data, int argc, char *argv[])
 		init_stack(data, &data->b, argc);
 		fill_stack(data, &data->a, argc, ++argv);
 	}
-	data->op_list = NULL;
 }
 
 void	init_stack(t_ps *data, t_stack *stk, int size)

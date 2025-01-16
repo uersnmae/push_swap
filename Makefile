@@ -10,7 +10,8 @@ STACK_SRC = data_management.c \
             op_swap.c \
             op_utils.c \
             stack_init.c \
-            stack_utils.c
+            stack_utils.c \
+			free_split.c
 
 PUSH_SWAP_INC = $(STACK_INC) push_swap.h
 PUSH_SWAP_SRC = $(STACK_SRC) \
