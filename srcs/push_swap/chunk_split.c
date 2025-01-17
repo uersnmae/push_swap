@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 12:46:50 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/15 15:42:06 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/17 14:47:19 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ void	set_third_pivot(enum e_loc loc, int size, int *pivot_1, int *pivot_2)
 {
 	*pivot_2 = size / 3;
 	if (loc == TOP_A || loc == BOTTOM_A)
-		*pivot_1 = 2 * (*pivot_2);
+		*pivot_1 = 2 * size / 3;
 	if (loc == TOP_B || loc == BOTTOM_B)
 		*pivot_1 = size / 2;
 	if ((loc == TOP_A || loc == BOTTOM_A) && size < 15)
 		*pivot_1 = size;
 	if (loc == BOTTOM_B && size < 8)
-		*pivot_1 = size / 2;
+		*pivot_2 = size / 2;
 }
 
 void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
@@ -75,7 +75,12 @@ void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
 	{
 		next = chunk_value(data, to_split, 1);
 		if (next > max - pivot_2)
+		{
 			dest->max.size += move_from_to(data, to_split->loc, dest->max.loc);
+			split_max_reduction(data, &dest->max);
+			if (a_partly_sort(data, 1) && to_split->size)
+				easy_sort(data, to_split);
+		}
 		else if (next > max - pivot_1)
 			dest->mid.size += move_from_to(data, to_split->loc, dest->mid.loc);
 		else

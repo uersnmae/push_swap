@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:27:20 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/15 15:57:55 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:30:26 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 int	chunk_value(t_ps *data, t_chunk *chunk, int n)
 {
+	enum e_loc	loc;
 	t_stack		*stk;
 	int			i;
 
-	stk = loc_to_stack(data, chunk->loc);
-	if (chunk->loc == TOP_A || chunk->loc == TOP_B)
+	loc = chunk->loc;
+	stk = loc_to_stack(data, loc);
+	if (loc == TOP_A || loc == TOP_B)
 		i = stk->top;
-	else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)
+	else if (loc == BOTTOM_A || loc == BOTTOM_B)
 		i = stk->bottom;
-	if (chunk->loc == TOP_A || chunk->loc == TOP_B)
+	if (loc == TOP_A || loc == TOP_B)
 		while (--n > 0)
 			i = next_down(stk, i);
-	else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)
+	else if (loc == TOP_A || loc == TOP_B)
 		while (--n > 0)
 			i = next_up(stk, i);
 	return (stk->stack[i]);
@@ -45,7 +47,7 @@ int	chunk_max_value(t_ps *data, t_chunk *chunk)
 		i = stk->top;
 	else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)
 		i = stk->bottom;
-	while (size--)
+	while (size)
 	{
 		if (stk->stack[i] > max)
 			max = stk->stack[i];
@@ -53,6 +55,7 @@ int	chunk_max_value(t_ps *data, t_chunk *chunk)
 			i = next_down(stk, i);
 		else if (chunk->loc == BOTTOM_A || chunk->loc == BOTTOM_B)
 			i = next_up(stk, i);
+		--size;
 	}
 	return (max);
 }

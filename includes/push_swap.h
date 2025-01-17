@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:26:53 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/14 20:23:40 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/17 16:43:17 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,19 @@ int		move_from_to(t_ps *data, enum e_loc from, enum e_loc to);
 
 // opti_to_top.c
 void	chunk_to_top(t_ps *data, t_chunk *to_sort);
+
+// opti_sort_asap.c
+void	split_max_reduction(t_ps *data, t_chunk *max);
+bool	a_partly_sort(t_ps *data, int from);
+
+// opti_post_sort.c
+void	post_sort_optimization(t_ps *data);
+
+// opti_post_sort_utils.c
+enum e_op	neutral_op(enum e_op op);
+bool	op_on_same_stack(enum e_op ref, enum e_op to_check);
+enum e_op	child_op(enum e_op first, enum e_op second);
+void	remove_op(t_list *to_delete);
 
 // sort.c
 void	sort(t_ps *data);

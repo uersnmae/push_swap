@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 20:12:14 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/16 10:42:44 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/17 11:16:12 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ void	easy_sort(t_ps *data, t_chunk *to_sort)
 {
 	while (to_sort->loc != TOP_A && to_sort->size)
 	{
-		if (get_value(&data->a, 1) == chunk_value(data, to_sort, 1) + 1
+		if (get_value(&data->a, 1) == chunk_value(data, to_sort, 1) - 1
 			&& to_sort->size > 0)
 			sort_one(data, to_sort);
-		else if (get_value(&data->a, 1) == chunk_value(data, to_sort, 2) + 1
+		else if (get_value(&data->a, 1) == chunk_value(data, to_sort, 2) - 1
 			&& to_sort->size > 1)
 			easy_sort_second(data, to_sort);
 		else

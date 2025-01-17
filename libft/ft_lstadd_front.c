@@ -14,14 +14,8 @@
 
 void	ft_lstadd_front(t_list **list, t_list *new)
 {
-	t_list	*current;
-
-	if ((*list) == (void *)0)
-		*list = new;
-	else
-	{
-		current = *list;
-		new->next = current;
-		*list = new;
-	}
+	new->next = *list;
+	if (!*list)
+		(*list)->prev = new;
+	*list = new;
 }

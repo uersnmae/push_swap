@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:38:28 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/15 17:10:33 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/17 15:22:22 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	rec_chunk_sort(t_ps *data, t_chunk *to_sort)
 	t_split_dest	dest;
 
 	chunk_to_top(data, to_sort);
+	easy_sort(data, to_sort);
 	if (to_sort->size <= 3)
 	{
 		if (to_sort->size == 3)
