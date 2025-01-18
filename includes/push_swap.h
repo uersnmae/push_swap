@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:26:53 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/17 16:43:17 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/18 15:59:30 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	rec_chunk_sort(t_ps *data, t_chunk *to_sort);
 // chunk_split.c
 void	init_size(t_chunk *min, t_chunk *mid, t_chunk *max);
 void	set_split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid, t_chunk *max);
-void	set_third_pivot(enum e_loc loc, int size, int *pivot_1, int *pivot_2);
+void	set_third_pivot(int size, int *pivot_1, int *pivot_2);
 void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest);
 
 // chunk_utils.c
