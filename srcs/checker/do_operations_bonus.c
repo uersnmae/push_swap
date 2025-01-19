@@ -69,10 +69,7 @@ void	read_ops(t_ps *data)
 	{
 		convert = string_to_op(op);
 		if (convert == null_op)
-		{
 			flag = true;
-			break ;
-		}
 		do_ops(data, convert);
 		free(op);
 		op = get_next_line(STDIN_FILENO);
