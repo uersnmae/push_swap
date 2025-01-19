@@ -70,9 +70,7 @@ void	chunk_split(t_ps *data, t_chunk *to_split, t_split_dest *dest)
 	{
 		next = chunk_value(data, to_split, 1);
 		if (next > max - pivot_2)
-		{
 			dest->max.size += move_from_to(data, to_split->loc, dest->max.loc);
-		}
 		else if (next > max - pivot_1)
 			dest->mid.size += move_from_to(data, to_split->loc, dest->mid.loc);
 		else

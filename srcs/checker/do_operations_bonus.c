@@ -10,30 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static enum e_op	string_to_op(char *str)
 {
 	static const char	*op_string[12] = {
-		"null_op",
-		"pa",
-		"pb",
-		"ra",
-		"rb",
-		"rr",
-		"rra",
-		"rrb",
-		"rrr",
-		"sa",
-		"sb",
-		"ss"
-	};
+		"null_op", "pa", "pb", "ra", "rb", "rr",
+		"rra", "rrb", "rrr", "sa", "sb", "ss"};
 	int					i;
+	size_t				len;
 
+	i = 0;
+	len = ft_strlen(str);
+	if (str[len - 1] == '\n')
+		--len;
 	while (op_string[i])
 	{
-		if (!ft_strcmp(op_string[i], str))
+		if (!ft_strncmp(op_string[i], str, len))
 			return (i);
+		++i;
 	}
 	return (null_op);
 }
@@ -64,13 +59,25 @@ static void	do_ops(t_ps *data, enum e_op op)
 
 void	read_ops(t_ps *data)
 {
-	char	*op;
+	char		*op;
+	bool		flag;
+	enum e_op	convert;
 
-	op = get_next_line(STDOUT_FILENO);
+	op = get_next_line(STDIN_FILENO);
+	flag = false;
 	while (op)
 	{
-		do_ops(data, string_to_op(op));
+		convert = string_to_op(op);
+		if (convert == null_op)
+		{
+			flag = true;
+			break ;
+		}
+		do_ops(data, convert);
 		free(op);
-		op = get_next_line(STDOUT_FILENO);
+		op = get_next_line(STDIN_FILENO);
 	}
+	free(op);
+	if (flag)
+		error(data);
 }

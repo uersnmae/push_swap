@@ -88,7 +88,10 @@ void	fill_stack(t_ps *data, t_stack *stk, int size, char *argv[])
 	while (argv[i])
 	{
 		if (!valid_arg(argv[i]))
+		{
+			free(numbers);
 			error(data);
+		}
 		numbers[i] = ft_atoi(argv[i]);
 		i++;
 	}

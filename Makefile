@@ -1,7 +1,7 @@
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -Iincludes -Isrcs -g
 
-VPATH = srcs:srcs/stack:srcs/push_swap:srcs/checker_bonus:includes
+VPATH = srcs:srcs/stack:srcs/push_swap:srcs/checker:includes
 STACK_INC = stack.h
 STACK_SRC = data_management.c \
             op_push.c \
@@ -24,12 +24,11 @@ PUSH_SWAP_SRC = $(STACK_SRC) \
                 sort.c \
                 push_swap.c \
 				opti_easy_sort.c \
-				opti_sort_asap.c \
-				opti_post_sort.c \
-				opti_post_sort_utils.c \
 
 CHECKER_INC = $(STACK_INC) checker_bonus.h
-CHECKER_SRC = $(STACK_SRC)
+CHECKER_SRC = $(STACK_SRC) \
+			  checker_bonus.c \
+			  do_operations_bonus.c \
 
 PUSH_SWAP = push_swap
 CHECKER = checker
@@ -39,7 +38,7 @@ OBJ_DIR = obj
 LIBFT = libft.a
 LIBFT_DIR = libft
 LIBFT_FILE = $(LIBFT_DIR)/$(LIBFT)
-CFLAGS += -I $(LIBFT_DIR)
+CFLAGS += -I $(LIBFT_DIR) -I $(LIBFT_DIR)/get_next_line
 
 FT_PRINTF = libftprintf.a
 FT_PRINTF_DIR = libft/ft_printf
