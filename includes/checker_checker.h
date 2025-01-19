@@ -1,41 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_split.c                                       :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 14:32:23 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/19 14:09:22 by dong-hki         ###   ########.fr       */
+/*   Created: 2025/01/19 14:56:23 by dong-hki          #+#    #+#             */
+/*   Updated: 2025/01/19 14:56:23 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-void	free_split(char **splited)
-{
-	int	i;
+# include "checker.h"
+# include "get_next_line.h"
 
-	i = 0;
-	while (splited[i])
-		free(splited[i++]);
-	free(splited);
-}
+// do_operations.c
+void	read_ops(t_ps *data)
 
-int	valid_split(char **splited)
-{
-	int	i;
-
-	i = 0;
-	while (splited[i])
-	{
-		if (!valid_arg(splited[i]))
-		{
-			free_split(splited);
-			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
-		}
-		++i;
-	}
-	return (i);
-}
+#endif

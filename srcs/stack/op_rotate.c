@@ -31,18 +31,21 @@ static void	rotate(t_stack *stk)
 void	rotate_a(t_ps *data)
 {
 	rotate(&data->a);
-	save_op(data, ra);
+	if (data->writing_mode)
+		save_op(data, ra);
 }
 
 void	rotate_b(t_ps *data)
 {
 	rotate(&data->b);
-	save_op(data, rb);
+	if (data->writing_mode)
+		save_op(data, rb);
 }
 
 void	rotate_all(t_ps *data)
 {
 	rotate(&data->a);
 	rotate(&data->b);
-	save_op(data, rr);
+	if (data->writing_mode)
+		save_op(data, rr);
 }

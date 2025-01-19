@@ -31,18 +31,21 @@ static void	rotate_reverse(t_stack *stk)
 void	rotate_reverse_a(t_ps *data)
 {
 	rotate_reverse(&data->a);
-	save_op(data, rra);
+	if (data->writing_mode)
+		save_op(data, rra);
 }
 
 void	rotate_reverse_b(t_ps *data)
 {
 	rotate_reverse(&data->b);
-	save_op(data, rrb);
+	if (data->writing_mode)
+		save_op(data, rrb);
 }
 
 void	rotate_reverse_all(t_ps *data)
 {
 	rotate_reverse(&data->a);
 	rotate_reverse(&data->b);
-	save_op(data, rrr);
+	if (data->writing_mode)
+		save_op(data, rrr);
 }

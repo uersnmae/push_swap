@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:04:51 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/16 11:55:37 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/19 13:46:15 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	ranking(int *numbers, int *stack, int size)
 	}
 }
 
-static bool	valid_arg(char *arg)
+bool	valid_arg(char *arg)
 {
 	long long	num;
 	int			sign;

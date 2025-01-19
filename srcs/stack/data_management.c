@@ -6,24 +6,24 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:05:19 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/16 16:00:00 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/19 14:08:18 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-void	init_data(t_ps *data, int argc, char *argv[])
+void	init_data(t_ps *data, int argc, char *argv[], bool flag)
 {
 	char	**splited;
 	int		splited_size;
 
 	data->op_list = NULL;
+	data->writing_mode = flag;
 	if (argc == 2)
 	{
 		splited_size = 0;
 		splited = ft_split(argv[1], ' ');
-		while (splited[splited_size])
-			splited_size++;
+		splited_size = valid_split(splited);
 		init_stack(data, &data->a, splited_size);
 		init_stack(data, &data->b, splited_size);
 		fill_stack(data, &data->a, splited_size, splited);
