@@ -29,6 +29,7 @@ CHECKER_INC = $(STACK_INC) checker_bonus.h
 CHECKER_SRC = $(STACK_SRC) \
 			  checker_bonus.c \
 			  do_operations_bonus.c \
+			  checker_gnl_bonus.c \
 
 PUSH_SWAP = push_swap
 CHECKER = checker

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_operations.c                                    :+:      :+:    :+:   */
+/*   do_operations_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 14:48:32 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/19 14:48:39 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:17:42 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-static enum e_op	string_to_op(char *str)
+enum e_op	string_to_op(char *str)
 {
 	static const char	*op_string[12] = {
 		"null_op", "pa", "pb", "ra", "rb", "rr",
@@ -55,26 +55,26 @@ static void	do_ops(t_ps *data, enum e_op op)
 		rotate_reverse_b(data);
 	else if (op == rrr)
 		rotate_reverse_all(data);
+	else
+		error(data);
 }
 
 void	read_ops(t_ps *data)
 {
 	char		*op;
-	bool		flag;
 	enum e_op	convert;
 
-	op = get_next_line(STDIN_FILENO);
-	flag = false;
+	op = get_next_line_ps(STDIN_FILENO);
 	while (op)
 	{
 		convert = string_to_op(op);
 		if (convert == null_op)
-			flag = true;
-		do_ops(data, convert);
+		{
+			free(op);
+			error(data);
+		}
 		free(op);
-		op = get_next_line(STDIN_FILENO);
+		do_ops(data, convert);
+		op = get_next_line_ps(STDIN_FILENO);
 	}
-	free(op);
-	if (flag)
-		error(data);
 }
