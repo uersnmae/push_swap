@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:04:51 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/19 13:46:15 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:05:05 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ bool	valid_arg(char *arg)
 		if (!ft_isdigit(*arg))
 			return (false);
 		num = num * 10 + (*arg - '0');
-		if ((sign == 1 && num > INT_MAX) || (sign == -1 && num * sign < INT_MIN))
+		if ((sign == 1 && num > INT_MAX)
+			|| (sign == -1 && num * sign < INT_MIN))
 			return (false);
 		arg++;
 	}

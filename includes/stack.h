@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 11:04:27 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/19 14:08:26 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:09:37 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ enum	e_op
 };
 
 // data management
-void	init_data(t_ps *data, int argc, char *argv[], bool flag);
+void		init_data(t_ps *data, int argc, char *argv[], bool flag);
 void		init_stack(t_ps *data, t_stack *stk, int size);
 bool		is_sorted(t_ps *data);
 void		error(t_ps *data);
@@ -97,7 +97,7 @@ const char	*op_to_string(enum e_op op);
 enum e_op	op_from(t_list *node);
 
 // free_split.c
-void	free_split(char **splited);
-int		valid_split(char **splited);
+void		free_split(char **splited);
+int			valid_split(char **splited);
 
 #endif

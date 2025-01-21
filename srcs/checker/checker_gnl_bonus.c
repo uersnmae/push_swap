@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 17:17:03 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/20 17:34:52 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:06:20 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*ps_substr(char **buf, size_t index)
 {
 	char	*temp;
 	char	*line;
-	int	buf_len;
+	int		buf_len;
 
 	buf_len = gnl_strlen(*buf);
 	line = gnl_substr(*buf, 0, index);

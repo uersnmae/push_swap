@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:32:30 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/18 10:44:16 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:05:16 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,4 @@ void	sort(t_ps *data)
 		sort_five_a(data);
 	else
 		chunk_sort(data);
-	//post_sort_optimization(data);
 }

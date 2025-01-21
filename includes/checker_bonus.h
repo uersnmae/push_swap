@@ -6,7 +6,7 @@
 /*   By: dong-hki <dong-hki@student.42gyeongsan.kr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 14:56:23 by dong-hki          #+#    #+#             */
-/*   Updated: 2025/01/20 17:18:14 by dong-hki         ###   ########.fr       */
+/*   Updated: 2025/01/21 11:09:16 by dong-hki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 // do_operations.c
 enum e_op	string_to_op(char *str);
-void	read_ops(t_ps *data);
+void		read_ops(t_ps *data);
 
 // checker_gnl_bonus.c
-char	*get_next_line_ps(int fd);
+char		*get_next_line_ps(int fd);
 
 #endif
